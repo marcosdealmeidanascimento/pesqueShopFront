@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
+import BaseLayout from "@/layout/BaseLayout.vue";
 import HomeView from "@/views/HomeView.vue";
 import ClientForm from "@/views/clients/ClientForm.vue";
-import BaseLayout from "@/layout/BaseLayout.vue";
 import ClientIndex from "@/views/clients/ClientIndex.vue";
+import ClientView from "@/views/clients/ClientView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -23,10 +24,15 @@ const router = createRouter({
           component: ClientIndex
         },
         {
-          path: "/client/:id?",
+          path: "/client/",
           name: "client",
           component: ClientForm,
         },
+        {
+          path: "/client/:id",
+          name: "client-view",
+          component: ClientView,
+        }
       ],
     },
   ],

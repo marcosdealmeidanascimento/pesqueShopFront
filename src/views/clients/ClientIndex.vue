@@ -7,14 +7,15 @@
                     <Button icon="pi pi-plus" rounded raised @click="router.push({ name: 'client' })" />
                 </div>
             </template>
-            <Column field="nomeCompleto" header="Name"></Column>
+            <Column field="nomeCompleto" header="Nome"></Column>
             <Column field="email" header="Email"></Column>
+            <Column field="telefone" header="Telefone"></Column>
             <Column header="Actions">
                 <template #body="slotProps">
-                    <Button icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
-                        @click="router.push({ name: 'client', params: { id: slotProps.data.id } })" />
+                    <Button icon="pi pi-eye" class="p-button-rounded p-button-success mr-2"
+                        @click="router.push({ name: 'client-view', params: { id: slotProps.data.id } })" />
                     <Button icon="pi pi-trash" class="p-button-rounded p-button-danger"
-                    @click="deleteClient(slotProps.data.id)" />
+                        @click="deleteClient(slotProps.data.id)" />
                 </template>
             </Column>
         </DataTable>
@@ -45,21 +46,16 @@ const getClients = async () => {
 
 const deleteClient = (id: Number) => {
     confirm.require({
-        message: 'Do you want to delete this record?',
-        header: 'Danger Zone',
+        message: 'Você quer excluir esse dado?',
+        header: 'Ação de exclusão',
         icon: 'pi pi-info-circle',
-        rejectLabel: 'Cancel',
-        acceptLabel: 'Delete',
+        rejectLabel: 'Cancelar',
+        acceptLabel: 'Excluir',
         rejectClass: 'p-button-secondary p-button-outlined',
         acceptClass: 'p-button-danger',
         accept: () => {
-            try {
-                apiClient.delete(`/clientes/${id}`).finally(() => getClients());
-                toast.add({ severity: 'success', summary: 'Sucesso', detail: 'Dado excluído com sucesso', life: 3000 });
-            } catch (error) {
-                toast.add({ severity: 'error', summary: 'Erro', detail: 'Erro ao excluir dado', life: 3000 });
-                console.error(error);
-            }
+            apiClient.delete(`/clientes/${id}`).finally(() => getClients());
+            toast.add({ severity: 'success', summary: 'Sucesso', detail: 'Dado excluído com sucesso', life: 3000 });
         },
         reject: () => {
             toast.add({ severity: 'error', summary: 'Recusado', detail: 'Dado não foi exculúido', life: 3000 });

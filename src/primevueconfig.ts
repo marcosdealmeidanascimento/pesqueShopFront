@@ -32,9 +32,15 @@ import InputGroupAddon from "primevue/inputgroupaddon";
 import TabMenu from "primevue/tabmenu";
 import Toolbar from "primevue/toolbar";
 import ConfirmDialog from "primevue/confirmdialog";
+import TabView from "primevue/tabview";
+import TabPanel from "primevue/tabpanel";
+import Panel from "primevue/panel";
 
 interface Components {
   [key: string]:
+    | typeof Panel
+    | typeof TabPanel
+    | typeof TabView
     | typeof ConfirmDialog
     | typeof Toolbar
     | typeof TabMenu
@@ -73,6 +79,12 @@ interface Components {
 
 const primevueconfig = {
   components: {
+    Panel,
+
+    TabPanel,
+
+    TabView,
+
     ConfirmDialog,
 
     Toolbar,
