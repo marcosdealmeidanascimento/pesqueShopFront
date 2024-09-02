@@ -62,3 +62,10 @@ const items = ref([
     }
 ])
 </script>
+
+<style>
+body{
+    margin: 0;
+}
+
+</style>

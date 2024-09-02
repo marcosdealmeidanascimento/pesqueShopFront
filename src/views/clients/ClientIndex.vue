@@ -10,6 +10,13 @@
             <Column field="nomeCompleto" header="Nome"></Column>
             <Column field="email" header="Email"></Column>
             <Column field="telefone" header="Telefone"></Column>
+            <Column field="status" header="Status">
+                <template #body="slotProps">
+                    <span :class="slotProps.data.status ? 'p-tag p-tag-success' : 'p-tag p-tag-danger'">
+                        {{ slotProps.data.status ? 'Ativo' : 'Inativo' }}
+                    </span>
+                </template>
+            </Column>
             <Column header="Actions">
                 <template #body="slotProps">
                     <Button icon="pi pi-eye" class="p-button-rounded p-button-success mr-2"
@@ -27,7 +34,7 @@
 <script setup lang="ts">
 import apiClient from '@/helpers/axios';
 import { ref, onBeforeMount } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRouter } from 'vue-router';
 
 import { useToast } from 'primevue/usetoast';
 import { useConfirm } from "primevue/useconfirm";
@@ -40,7 +47,7 @@ const confirm = useConfirm();
 const clients = ref([])
 
 const getClients = async () => {
-    const { data } = await apiClient.get('/clientes/?limit=0&offset=0');
+    const { data } = await apiClient.post('/clientes/filter?limit=0&offset=0', { filter: '' });
     clients.value = data;
 }
 

@@ -560,7 +560,6 @@ watch(cep, async (newValue) => {
         cidade.value = response.city;
         estado.value = response.state;
     }
-
 });
 
 
