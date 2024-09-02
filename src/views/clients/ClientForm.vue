@@ -1,4 +1,8 @@
 <template>
+    <div class="flex align-items-center justify-content-center">
+        <Button icon="pi pi-user" />
+        <h1 class="ml-3 font-bold text-2xl my-5">Cadastro de Cliente</h1>
+    </div>
     <form @submit.prevent="" class="my-5">
         <div class="card flex justify-content-center">
             <Stepper>
