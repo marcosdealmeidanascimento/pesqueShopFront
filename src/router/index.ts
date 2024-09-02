@@ -4,7 +4,8 @@ import HomeView from "@/views/HomeView.vue";
 import ClientForm from "@/views/clients/ClientForm.vue";
 import ClientIndex from "@/views/clients/ClientIndex.vue";
 import ClientView from "@/views/clients/ClientView.vue";
-import ClienteAddressForm from "@/views/clients/ClienteAddressForm.vue";
+import ClientAddressForm from "@/views/clients/ClientAddressForm.vue";
+import ClientCreditCardForm from "@/views/clients/ClientCreditCardForm.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -37,7 +38,12 @@ const router = createRouter({
         {
           path: "/client/address/:id",
           name: "client-address",
-          component: ClienteAddressForm,
+          component: ClientAddressForm,
+        },
+        {
+          path: "/client/credit-card/:id",
+          name: "client-credit-card",
+          component: ClientCreditCardForm,
         }
       ],
     },

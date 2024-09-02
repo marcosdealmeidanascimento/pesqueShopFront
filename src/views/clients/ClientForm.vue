@@ -242,7 +242,7 @@
                             <div class="flex pt-4 justify-content-between">
                                 <Button label="Voltar" severity="secondary" icon="pi pi-arrow-left"
                                     @click="prevCallback" />
-                                <Button label="Submit" type="submit" icon="pi pi-check" iconPos="right"
+                                <Button label="Salvar" type="submit" icon="pi pi-check" iconPos="right"
                                     :disabled="disabled" @click="submitData" />
                             </div>
                         </div>
@@ -475,7 +475,7 @@ const salvarEndereco = (async (clientId: Number) => {
 
 const salvarCartao = (async (clientId: Number) => {
     let dataCartao = {
-        numero: numero.value,
+        numero: numeroCartao.value,
         nomeImpresso: nomeImpresso.value,
         cvv: cvv.value,
         bandeira: bandeira.value,
@@ -523,6 +523,10 @@ const salvarCartao = (async (clientId: Number) => {
         }
     }
 
+    setTimeout(() => {
+        router.push({ name: 'clients' });
+    }, 3000);
+
     return;
 
 })
@@ -534,9 +538,6 @@ const submitData = async () => {
     }
     await salvarEndereco(clienteId.value);
     await salvarCartao(clienteId.value);
-    setTimeout(() => {
-        router.push({ name: 'clients' });
-    }, 3000);
 }
 
 const consultarCEP = async (cep: String) => {
@@ -564,7 +565,7 @@ watch(cep, async (newValue) => {
 
 
 watch([senha, confirmarSenha], ([senha, confirmarSenha]) => {
-    if (senha === confirmarSenha) {
+    if (senha === confirmarSenha && senha.length > 7) {
         invalidPass.value = false;
         disabled.value = false;
     } else {

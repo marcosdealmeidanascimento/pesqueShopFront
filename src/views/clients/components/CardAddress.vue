@@ -1,5 +1,5 @@
 <template>
-    <Card>
+    <Card class="my-5">
         <template #content>
             <div class="border-1 surface-border border-round surface-ground font-medium p-3 flex flex-auto flex-column">
                 <div class="flex justify-content-end align-items-center">

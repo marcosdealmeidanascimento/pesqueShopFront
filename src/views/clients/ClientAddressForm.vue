@@ -1,5 +1,5 @@
 <template>
-    <Card>
+    <Card class="my-5">
         <template #content>
             <div class="border-1 surface-border border-round surface-ground font-medium p-3 flex flex-auto flex-column">
                 <h1 class="font-bold text-2xl my-5">Adicionar Dados do Endereço</h1>
@@ -101,8 +101,6 @@ const route = useRoute();
 const router = useRouter();
 const toast = useToast();
 
-const visible = ref(false);
-const readonly = ref(true);
 const disabledCep = ref(false);
 
 const clienteId = ref(route.params.id);

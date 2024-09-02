@@ -23,9 +23,33 @@
                 </template>
                 <div class="flex justify-content-end align-items-center mb-4">
                     <h3 class="mr-5">Adicionar Endereço</h3>
-                    <Button icon="pi pi-plus" @click="router.push({ name: 'client-address', params: {id: clienteId} })" />
+                    <Button icon="pi pi-plus"
+                        @click="router.push({ name: 'client-address', params: { id: clienteId } })" />
                 </div>
-                <CardAddress v-for="endereco in enderecos" class="mb-5" :endereco="endereco" />
+                <CardAddress v-for="endereco in enderecos" :endereco="endereco" />
+            </TabPanel>
+            <TabPanel>
+                <template #header>
+                    <div class="flex align-items-center gap-2 mr-4">
+                        <Button icon="pi pi-credit-card"></Button>
+                        <span class="font-bold white-space-nowrap">Cartões</span>
+                    </div>
+                </template>
+                <div class="flex justify-content-end align-items-center mb-4">
+                    <h3 class="mr-5">Adicionar Cartão</h3>
+                    <Button icon="pi pi-plus"
+                        @click="router.push({ name: 'client-credit-card', params: { id: clienteId } })" />
+                </div>
+                <CardCreditCard v-for="cartao in cartoes" :cartao="cartao" />
+            </TabPanel>
+            <TabPanel>
+                <template #header>
+                    <div class="flex align-items-center gap-2 mr-4">
+                        <Button icon="pi pi-lock"></Button>
+                        <span class="font-bold white-space-nowrap">Senha</span>
+                    </div>
+                </template>
+                <CardPassword />
             </TabPanel>
         </TabView>
         <ConfirmDialog></ConfirmDialog>
@@ -35,6 +59,7 @@
 <script setup lang="ts">
 import CardAddress from './components/CardAddress.vue';
 import ClientPersonalInfo from './components/ClientPersonalInfo.vue';
+import CardCreditCard from './components/CardCreditCard.vue';
 
 import apiClient from '@/helpers/axios';
 import { ref, onBeforeMount, watch } from 'vue';
@@ -42,6 +67,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { useToast } from 'primevue/usetoast';
 
 import { useConfirm } from "primevue/useconfirm";
+import CardPassword from './components/CardPassword.vue';
 
 const toast = useToast();
 const confirm = useConfirm();
@@ -59,8 +85,14 @@ const getClienteEnderecos = async () => {
     enderecos.value = response.data;
 }
 
+const getClienteCartoes = async () => {
+    const response = await apiClient.get(`/cartoes/cliente/${clienteId.value}`);
+    cartoes.value = response.data;
+}
+
 onBeforeMount(() => {
     getClienteEnderecos();
+    getClienteCartoes();
 })
 
 </script>
