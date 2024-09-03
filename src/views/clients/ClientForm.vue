@@ -506,6 +506,7 @@ const salvarCartao = (async (clientId: Number) => {
         if (responseCartao != undefined) {
             cartaoId.value = responseCartao.data.id;
             toast.add({ severity: 'success', summary: 'Sucesso', detail: 'Cartão salvo com sucesso', life: 3000 });
+            router.push({ name: 'clients' });
         }
         return;
     }
