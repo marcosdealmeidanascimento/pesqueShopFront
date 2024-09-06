@@ -15,57 +15,59 @@
                                     <div>
                                         Nome completo
                                         <InputText placeholder="Nome completo" class="w-full" v-model="nomeCompleto"
-                                            required />
+                                            required id="nomeCompleto" />
                                     </div>
                                 </div>
                                 <div class="my-2">
                                     <div>
                                         Gênero
                                         <Dropdown class="w-full" v-model="genero" :options="generos" optionLabel="label"
-                                            optionValue="value" placeholder="Selecione um gênero" required />
+                                            optionValue="value" placeholder="Selecione um gênero" required
+                                            id="genero" />
                                     </div>
                                 </div>
                                 <div class="my-2">
                                     <div>
                                         Email
                                         <InputText placeholder="Email" class="w-full" v-model="email" type="email"
-                                            required />
+                                            required id="email" />
                                     </div>
                                 </div>
                                 <div class="my-2">
                                     <div>
                                         CPF
                                         <InputMask mask="999.999.999-99" placeholder="999.999.999-99" class="w-full"
-                                            v-model="cpf" required />
+                                            v-model="cpf" required id="cpf" />
                                     </div>
                                 </div>
                                 <div class="my-2">
                                     <div>
                                         Data de Nascimento
-                                        <Calendar class="w-full" v-model="dataNascimento" dateFormat="dd/mm/yy"
-                                            required />
+                                        <Calendar class="w-full" v-model="dataNascimento" dateFormat="dd/mm/yy" required
+                                            id="dataNascimento" />
                                     </div>
                                 </div>
                                 <div class="my-2">
                                     <div>
                                         Telefone
                                         <InputMask mask="(99) 99999-9999" placeholder="(99) 99999-9999" class="w-full"
-                                            v-model="telefone" required />
+                                            v-model="telefone" required id="telefone" />
                                     </div>
                                 </div>
                                 <div class="my-2">
                                     <div>
                                         Tipo de Telefone
                                         <Dropdown placeholder="Tipo de Telefone" class="w-full" :options="tiposTelefone"
-                                            v-model="tipoTelefone" optionValue="value" optionLabel="label" required />
+                                            v-model="tipoTelefone" optionValue="value" optionLabel="label" required
+                                            id="tipoTel" />
                                     </div>
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-between">
                                 <Button label="Voltar" severity="secondary" icon="pi pi-arrow-left"
                                     @click=router.go(-1) />
-                                <Button label="Avançar" icon="pi pi-arrow-right" iconPos="right"
-                                    @click="nextCallback" />
+                                <Button label="Avançar" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback"
+                                    id="secondStep" />
                             </div>
                         </div>
                     </template>
@@ -79,7 +81,7 @@
                                     <div>
                                         CEP
                                         <InputText type="number" placeholder="99999999" class="w-full" v-model="cep"
-                                            :disabled="disabledCep" required />
+                                            :disabled="disabledCep" required id="cep" />
                                     </div>
                                 </div>
                                 <div class="my-2">
@@ -88,7 +90,7 @@
                                     </div>
                                     <Dropdown placeholder="Tipo de Logradouro" class="w-full" optionLabel="label"
                                         optionValue="value" :options="tiposLogradouro" filter v-model="tipoLogradouro"
-                                        required />
+                                        id="tipoLog" required />
                                 </div>
                                 <div class="my-2">
                                     <div>
@@ -100,7 +102,8 @@
                                 <div class="my-2">
                                     <div>
                                         Número
-                                        <InputText placeholder="Número" class="w-full" v-model="numero" required />
+                                        <InputText placeholder="Número" class="w-full" v-model="numero" required
+                                            id="numero" />
                                     </div>
                                 </div>
                                 <div class="my-2">
@@ -114,13 +117,14 @@
                                         Tipo de Residência
                                     </div>
                                     <Dropdown placeholder="Tipo de Residência" class="w-full" :options="tiposResidencia"
-                                        optionLabel="label" optionValue="value" filter v-model="tipoResidencia"
-                                        required />
+                                        optionLabel="label" optionValue="value" filter v-model="tipoResidencia" required
+                                        id="tipoRes" />
                                 </div>
                                 <div class="my-2">
                                     <div>
                                         Complemento
-                                        <InputText placeholder="Complemento" class="w-full" v-model="complemento" />
+                                        <InputText placeholder="Complemento" class="w-full" v-model="complemento"
+                                            id="complemento" />
                                     </div>
                                 </div>
                                 <div class="my-2">
@@ -138,28 +142,30 @@
                                 <div class="my-2">
                                     <div>
                                         País
-                                        <InputText placeholder="País" class="w-full" v-model="pais" required />
+                                        <InputText placeholder="País" class="w-full" v-model="pais" required
+                                            id="pais" />
                                     </div>
                                 </div>
                                 <div class="my-2">
                                     <div>
                                         Apelido
-                                        <InputText placeholder="Apelido" class="w-full" v-model="apelido" required />
+                                        <InputText placeholder="Apelido" class="w-full" v-model="apelido" required
+                                            id="apelidoEnd" />
                                     </div>
                                 </div>
                                 <div class="my-2">
                                     <div>
                                         Observações
                                         <Textarea placeholder="Observações" class="w-full" v-model="observacao"
-                                            auto-resize />
+                                            id="observacao" auto-resize />
                                     </div>
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-between">
                                 <Button label="Voltar" severity="secondary" icon="pi pi-arrow-left"
                                     @click="prevCallback" />
-                                <Button label="Avançar" icon="pi pi-arrow-right" iconPos="right"
-                                    @click="nextCallback" />
+                                <Button label="Avançar" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback"
+                                    id="thirdStep" />
                             </div>
                         </div>
                     </template>
@@ -177,10 +183,10 @@
                                         </InputGroupAddon>
                                         <InputText placeholder="9999 9999 9999 9999" class="w-full"
                                             v-model="numeroCartao" type="text" maxlength="16" @input="validarNumero"
-                                            required />
+                                            required id="numeroCartao" />
                                         <InputGroupAddon>
                                             <Dropdown :options="bandeiras" optionLabel="label" optionValue="value"
-                                                required v-model="bandeira">
+                                                id="bandeira" required v-model="bandeira">
                                                 <template #option="{ option }">
                                                     <span>{{ option.label }}</span>
                                                 </template>
@@ -193,26 +199,26 @@
                                         Código de Segurança
                                     </p>
                                     <InputOtp :length="3" class="w-full flex justify-content-center" integerOnly mask
-                                        required v-model="cvv" />
+                                        id="cvv" required v-model="cvv" />
                                 </div>
                                 <div class="my-2">
                                     <div>
                                         Nome do Titular
                                         <InputText placeholder="Nome do Titular" class="w-full" required
-                                            v-model="nomeImpresso" />
+                                            id="nomeImpresso" v-model="nomeImpresso" />
                                     </div>
                                 </div>
                                 <div class="my-2">
                                     <div>
                                         Validade
                                         <Calendar class="w-full" v-model="validade" dateFormat="mm/yy" view="month"
-                                            required />
+                                            id="validade" required />
                                     </div>
                                 </div>
                                 <div class="my-2">
                                     <div>
                                         Apelido do Cartão
-                                        <InputText placeholder="Apelido do Cartão" class="w-full"
+                                        <InputText placeholder="Apelido do Cartão" class="w-full" id="apelidoCartao"
                                             v-model="apelidoCartao" required />
                                     </div>
                                 </div>
@@ -220,8 +226,8 @@
                             <div class="flex pt-4 justify-content-between">
                                 <Button label="Voltar" severity="secondary" icon="pi pi-arrow-left"
                                     @click="prevCallback" />
-                                <Button label="Avançar" icon="pi pi-arrow-right" iconPos="right"
-                                    @click="nextCallback" />
+                                <Button label="Avançar" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback"
+                                    id="fourthStep" />
                             </div>
                         </div>
                     </template>
@@ -233,13 +239,14 @@
                                 <div class="my-2 col-6 p-6">
                                     <div>
                                         Senha
-                                        <Password v-model="senha" :invalid="invalidPass" toggleMask />
+                                        <Password v-model="senha" :invalid="invalidPass" toggleMask id="senha" />
                                     </div>
                                 </div>
                                 <div class="my-2 col-6 p-6">
                                     <div>
                                         Confirmar Senha
-                                        <Password v-model="confirmarSenha" :invalid="invalidPass" toggleMask />
+                                        <Password v-model="confirmarSenha" :invalid="invalidPass" toggleMask
+                                            id="confSenha" />
                                     </div>
                                 </div>
                             </div>
@@ -247,7 +254,7 @@
                                 <Button label="Voltar" severity="secondary" icon="pi pi-arrow-left"
                                     @click="prevCallback" />
                                 <Button label="Salvar" type="submit" icon="pi pi-check" iconPos="right"
-                                    :disabled="disabled" @click="submitData" />
+                                    :disabled="disabled" @click="submitData" id="salvarBtn" />
                             </div>
                         </div>
                     </template>

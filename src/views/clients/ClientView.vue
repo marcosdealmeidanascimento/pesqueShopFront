@@ -9,7 +9,7 @@
                 <template #header>
                     <div class="flex align-items-center gap-2 mr-4">
                         <Button icon="pi pi-user"></Button>
-                        <span class="font-bold white-space-nowrap">Dados Pessoais</span>
+                        <span id="dadosPessoais" class="font-bold white-space-nowrap">Dados Pessoais</span>
                     </div>
                 </template>
                 <ClientPersonalInfo />
@@ -18,12 +18,12 @@
                 <template #header>
                     <div class="flex align-items-center gap-2 mr-4">
                         <Button icon="pi pi-home"></Button>
-                        <span class="font-bold white-space-nowrap">Endereço</span>
+                        <span id="dadosEndereco" class="font-bold white-space-nowrap">Endereço</span>
                     </div>
                 </template>
                 <div class="flex justify-content-end align-items-center mb-4">
                     <h3 class="mr-5">Adicionar Endereço</h3>
-                    <Button icon="pi pi-plus"
+                    <Button icon="pi pi-plus" id="addenderecoBtn"
                         @click="router.push({ name: 'client-address', params: { id: clienteId } })" />
                 </div>
                 <CardAddress v-for="endereco in enderecos" :endereco="endereco" />
@@ -32,12 +32,12 @@
                 <template #header>
                     <div class="flex align-items-center gap-2 mr-4">
                         <Button icon="pi pi-credit-card"></Button>
-                        <span class="font-bold white-space-nowrap">Cartões</span>
+                        <span id="dadosCartao" class="font-bold white-space-nowrap">Cartões</span>
                     </div>
                 </template>
                 <div class="flex justify-content-end align-items-center mb-4">
                     <h3 class="mr-5">Adicionar Cartão</h3>
-                    <Button icon="pi pi-plus"
+                    <Button icon="pi pi-plus" id="addcartaoBtn"
                         @click="router.push({ name: 'client-credit-card', params: { id: clienteId } })" />
                 </div>
                 <CardCreditCard v-for="cartao in cartoes" :cartao="cartao" />
@@ -46,7 +46,7 @@
                 <template #header>
                     <div class="flex align-items-center gap-2 mr-4">
                         <Button icon="pi pi-lock"></Button>
-                        <span class="font-bold white-space-nowrap">Senha</span>
+                        <span id="dadosSenha" class="font-bold white-space-nowrap">Senha</span>
                     </div>
                 </template>
                 <CardPassword />

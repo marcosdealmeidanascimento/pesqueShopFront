@@ -4,7 +4,7 @@
             <template #header>
                 <div class="flex flex-wrap align-items-center justify-content-between gap-2">
                     <span class="text-xl text-900 font-bold">Clientes</span>
-                    <Button icon="pi pi-plus" rounded raised @click="router.push({ name: 'client' })" />
+                    <Button id="criarBtn" icon="pi pi-plus" rounded raised @click="router.push({ name: 'client' })" />
                 </div>
                 <div class="flex flex-wrap justify-around gap-5 mt-5" id="optionsFilter">
                     <span>
