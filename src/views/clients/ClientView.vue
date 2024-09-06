@@ -2,7 +2,7 @@
     <div class="my-5">
         <div class="flex flex-wrap align-items-center justify-content-between my-2">
             <span></span>
-            <Button icon="pi pi-arrow-left" rounded raised @click="router.push({ name: 'clients' })" />
+            <Button icon="pi pi-arrow-left" rounded raised @click="router.push({ name: 'clients' })" id="voltarBtn" />
         </div>
         <TabView class="tabview-custom">
             <TabPanel>
@@ -23,7 +23,7 @@
                 </template>
                 <div class="flex justify-content-end align-items-center mb-4">
                     <h3 class="mr-5">Adicionar Endereço</h3>
-                    <Button icon="pi pi-plus" id="addenderecoBtn"
+                    <Button icon="pi pi-plus" id="addEnderecoBtn"
                         @click="router.push({ name: 'client-address', params: { id: clienteId } })" />
                 </div>
                 <CardAddress v-for="endereco in enderecos" :endereco="endereco" />
@@ -37,7 +37,7 @@
                 </template>
                 <div class="flex justify-content-end align-items-center mb-4">
                     <h3 class="mr-5">Adicionar Cartão</h3>
-                    <Button icon="pi pi-plus" id="addcartaoBtn"
+                    <Button icon="pi pi-plus" id="addCartaoBtn"
                         @click="router.push({ name: 'client-credit-card', params: { id: clienteId } })" />
                 </div>
                 <CardCreditCard v-for="cartao in cartoes" :cartao="cartao" />
@@ -52,7 +52,7 @@
                 <CardPassword />
             </TabPanel>
         </TabView>
-        <ConfirmDialog></ConfirmDialog>
+        <ConfirmDialog id="deleteDialog"></ConfirmDialog>
     </div>
 </template>
 

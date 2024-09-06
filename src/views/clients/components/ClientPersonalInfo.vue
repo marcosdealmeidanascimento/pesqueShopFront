@@ -2,7 +2,8 @@
     <div class="border-1 surface-border border-round surface-ground font-medium p-3 flex flex-auto flex-column">
         <div class="flex justify-content-end align-items-center">
             <span class="font-bold mx-2">Editar</span>
-            <Button class="my-2" icon="pi pi-pencil" @click="[visible = true, readonly = false]"></Button>
+            <Button id="editarDadosPessoais" class="my-2" icon="pi pi-pencil"
+                @click="[visible = true, readonly = false]"></Button>
         </div>
         <div class="my-2">
             <div>
@@ -28,7 +29,7 @@
         <div class="my-2">
             <div>
                 CPF
-                <InputMask mask="999.999.999-99" placeholder="999.999.999-99" class="w-full" v-model="cliente.cpf"
+                <InputText placeholder="999.999.999-99" class="w-full" v-model="cliente.cpf"
                     required :readonly="readonly" />
             </div>
         </div>
@@ -73,59 +74,62 @@
                 <div class="my-2">
                     <div>
                         Nome completo
-                        <InputText placeholder="Nome completo" class="w-full" v-model="cliente.nomeCompleto" required />
+                        <InputText placeholder="Nome completo" class="w-full" v-model="cliente.nomeCompleto" required
+                            id="nomeCompleto" />
                     </div>
                 </div>
                 <div class="my-2">
                     <div>
                         Gênero
                         <Dropdown class="w-full" v-model="cliente.genero" :options="generos" optionLabel="label"
-                            optionValue="value" placeholder="Selecione um gênero" required />
+                            id="genero" optionValue="value" placeholder="Selecione um gênero" required />
                     </div>
                 </div>
                 <div class="my-2">
                     <div>
                         Email
-                        <InputText placeholder="Email" class="w-full" v-model="cliente.email" type="email" required />
+                        <InputText placeholder="Email" class="w-full" v-model="cliente.email" type="email" required
+                            id="email" />
                     </div>
                 </div>
                 <div class="my-2">
                     <div>
                         CPF
-                        <InputMask mask="999.999.999-99" placeholder="999.999.999-99" class="w-full"
+                        <InputMask mask="999.999.999-99" placeholder="999.999.999-99" class="w-full" id="cpf"
                             v-model="cliente.cpf" required />
                     </div>
                 </div>
                 <div class="my-2">
                     <div>
                         Data de Nascimento
-                        <Calendar class="w-full" v-model="cliente.dataNascimento" dateFormat="dd/mm/yy" required />
+                        <Calendar class="w-full" v-model="cliente.dataNascimento" dateFormat="dd/mm/yy" required id="dataNascimento"
+                        />
                     </div>
                 </div>
                 <div class="my-2">
                     <div>
                         Telefone
-                        <InputMask mask="(99) 99999-9999" placeholder="(99) 99999-9999" class="w-full"
+                        <InputMask mask="(99) 99999-9999" placeholder="(99) 99999-9999" class="w-full" id="telefone"
                             v-model="cliente.telefone" required />
                     </div>
                 </div>
                 <div class="my-2">
                     <div>
                         Tipo de Telefone
-                        <Dropdown placeholder="Tipo de Telefone" class="w-full" :options="tiposTelefone"
+                        <Dropdown placeholder="Tipo de Telefone" class="w-full" :options="tiposTelefone" id="tipoTelefone"
                             v-model="cliente.tipoTelefone" optionValue="value" optionLabel="label" required />
                     </div>
                 </div>
                 <div class="my-2">
                     <div class="flex align-items-center">
                         Status
-                        <InputSwitch class="ml-2" v-model="cliente.status" required :readonly="readonly" />
+                        <InputSwitch class="ml-2" v-model="cliente.status" required :readonly="readonly" id="status" />
                     </div>
                 </div>
                 <div class="flex justify-content-between align-items-center my-5">
                     <Button class="my-2" icon="pi pi-x" @click="[visible = false, readonly = true, getCliente()]"
                         severity="danger" label="Cancelar"></Button>
-                    <Button class="my-2" icon="pi pi-check" @click="salvarCliente" label="Salvar"></Button>
+                    <Button class="my-2" icon="pi pi-check" @click="salvarCliente" label="Salvar" id="salvarDadosPessoaisBtn"></Button>
                 </div>
             </div>
         </template>
