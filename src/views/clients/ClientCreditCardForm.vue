@@ -9,10 +9,10 @@
                         <InputGroupAddon>
                             <i class="pi pi-credit-card"></i>
                         </InputGroupAddon>
-                        <InputText placeholder="9999 9999 9999 9999" class="w-full" v-model="numeroCartao" type="text"
+                        <InputText placeholder="9999 9999 9999 9999" class="w-full" v-model="numeroCartao" type="text" id="numeroCartao"
                             maxlength="16" @input="validarNumero" required />
                         <InputGroupAddon>
-                            <Dropdown :options="bandeiras" optionLabel="label" optionValue="value" required
+                            <Dropdown :options="bandeiras" optionLabel="label" optionValue="value" required id="bandeira"
                                 v-model="bandeira">
                                 <template #option="{ option }">
                                     <span>{{ option.label }}</span>
@@ -25,31 +25,35 @@
                     <p class="text-center">
                         Código de Segurança
                     </p>
-                    <InputOtp :length="3" class="w-full flex justify-content-center" integerOnly mask required
+                    <InputOtp :length="3" class="w-full flex justify-content-center" integerOnly mask required id="cvv"
                         v-model="cvv" />
                 </div>
                 <div class="my-2">
                     <div>
                         Nome do Titular
-                        <InputText placeholder="Nome do Titular" class="w-full" required v-model="nomeImpresso" />
+                        <InputText placeholder="Nome do Titular" class="w-full" required v-model="nomeImpresso" id="nomeImpresso"
+                        />
                     </div>
                 </div>
                 <div class="my-2">
                     <div>
                         Validade
-                        <Calendar class="w-full" v-model="validade" dateFormat="mm/yy" view="month" required />
+                        <Calendar class="w-full" v-model="validade" dateFormat="mm/yy" view="month" required id="validade"
+                        />
                     </div>
                 </div>
                 <div class="my-2">
                     <div>
                         Apelido do Cartão
-                        <InputText placeholder="Apelido do Cartão" class="w-full" v-model="apelidoCartao" required />
+                        <InputText placeholder="Apelido do Cartão" class="w-full" v-model="apelidoCartao" required id="apelidoCartao"
+                        />
                     </div>
                 </div>
                 <div class="flex justify-content-between align-items-center my-5">
                     <Button class="my-2" icon="pi pi-x" @click="router.go(-1)" severity="danger"
                         label="Cancelar"></Button>
-                    <Button class="my-2" icon="pi pi-check" @click="salvarCartao" label="Salvar"></Button>
+                    <Button class="my-2" icon="pi pi-check" @click="salvarCartao" label="Salvar" id="salvarCartaoBtn"
+                    ></Button>
                 </div>
             </div>
 

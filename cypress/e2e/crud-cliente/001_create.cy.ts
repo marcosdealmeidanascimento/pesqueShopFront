@@ -36,7 +36,6 @@ describe('test-filtering', () => {
         cy.get('#apelidoEnd').type('Casa Itaquá')
         cy.get('#observacao').type('Casa do Marcos')
         cy.get('#thirdStep').click()
-        cy.scrollTo('top');
         cy.get('#numeroCartao').type('1234567890123456')
         cy.get('#bandeira').click()
         cy.get('#bandeira_0').click()

@@ -6,7 +6,7 @@
                 <div class="my-2">
                     <div>
                         CEP
-                        <InputText type="number" placeholder="99999999" class="w-full" v-model="cep"
+                        <InputText type="number" placeholder="99999999" class="w-full" v-model="cep" id="cep"
                             :disabled="disabledCep" required />
                     </div>
                 </div>
@@ -15,74 +15,76 @@
                         Tipo de Logradouro
                     </div>
                     <Dropdown placeholder="Tipo de Logradouro" class="w-full" optionLabel="label" optionValue="value"
-                        :options="tiposLogradouro" filter v-model="tipoLogradouro" required />
+                        id="tipoLog" :options="tiposLogradouro" filter v-model="tipoLogradouro" required />
                 </div>
                 <div class="my-2">
                     <div>
                         Logradouro
-                        <InputText placeholder="Endereço" class="w-full" v-model="logradouro" required />
+                        <InputText placeholder="Endereço" class="w-full" v-model="logradouro" required
+                            id="logradouro" />
                     </div>
                 </div>
                 <div class="my-2">
                     <div>
                         Número
-                        <InputText placeholder="Número" class="w-full" v-model="numero" required />
+                        <InputText placeholder="Número" class="w-full" v-model="numero" required id="numero" />
                     </div>
                 </div>
                 <div class="my-2">
                     <div>
                         Bairro
-                        <InputText placeholder="Bairro" class="w-full" v-model="bairro" required />
+                        <InputText placeholder="Bairro" class="w-full" v-model="bairro" required id="bairro" />
                     </div>
                 </div>
                 <div class="my-2">
                     <div>
                         Tipo de Residência
                     </div>
-                    <Dropdown placeholder="Tipo de Residência" class="w-full" :options="tiposResidencia"
+                    <Dropdown placeholder="Tipo de Residência" class="w-full" :options="tiposResidencia" id="tipoRes"
                         optionLabel="label" optionValue="value" filter v-model="tipoResidencia" required />
                 </div>
                 <div class="my-2">
                     <div>
                         Complemento
-                        <InputText placeholder="Complemento" class="w-full" v-model="complemento" />
+                        <InputText placeholder="Complemento" class="w-full" v-model="complemento" id="complemento" />
                     </div>
                 </div>
                 <div class="my-2">
                     <div>
                         Cidade
-                        <InputText placeholder="Cidade" class="w-full" v-model="cidade" required />
+                        <InputText placeholder="Cidade" class="w-full" v-model="cidade" required id="cidade" />
                     </div>
                 </div>
                 <div class="my-2">
                     <div>
                         Estado
-                        <InputText placeholder="Estado" class="w-full" v-model="estado" required />
+                        <InputText placeholder="Estado" class="w-full" v-model="estado" required id="estado" />
                     </div>
                 </div>
                 <div class="my-2">
                     <div>
                         País
-                        <InputText placeholder="País" class="w-full" v-model="pais" required />
+                        <InputText placeholder="País" class="w-full" v-model="pais" required id="pais" />
                     </div>
                 </div>
                 <div class="my-2">
                     <div>
                         Apelido
-                        <InputText placeholder="Apelido" class="w-full" v-model="apelido" required />
+                        <InputText placeholder="Apelido" class="w-full" v-model="apelido" required id="apelidoEnd" />
                     </div>
                 </div>
                 <div class="my-2">
                     <div>
                         Observações
-                        <Textarea placeholder="Observações" class="w-full" v-model="observacao" auto-resize />
+                        <Textarea placeholder="Observações" class="w-full" v-model="observacao" auto-resize
+                            id="observacao" />
                     </div>
                 </div>
                 <div class="flex justify-content-between align-items-center my-5">
-                    <Button class="my-2" icon="pi pi-x"
-                        @click="router.go(-1)" severity="danger"
+                    <Button class="my-2" icon="pi pi-x" @click="router.go(-1)" severity="danger"
                         label="Cancelar"></Button>
-                    <Button class="my-2" icon="pi pi-check" @click="salvarEndereco" label="Salvar"></Button>
+                    <Button class="my-2" icon="pi pi-check" @click="salvarEndereco" label="Salvar" id="salvarEnderecoBtn"
+                    ></Button>
                 </div>
             </div>
         </template>
