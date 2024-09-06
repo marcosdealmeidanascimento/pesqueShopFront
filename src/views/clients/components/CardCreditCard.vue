@@ -4,7 +4,8 @@
             <div class="border-1 surface-border border-round surface-ground font-medium p-3 flex flex-auto flex-column">
                 <div class="flex justify-content-end align-items-center">
                     <span class="font-bold mx-2">Editar</span>
-                    <Button class="my-2 mr-5" icon="pi pi-pencil" @click="[visible = true, readonly = false]"></Button>
+                    <Button class="my-2 mr-5" icon="pi pi-pencil" @click="[visible = true, readonly = false]"
+                        id="editarCartao"></Button>
                     <span class="font-bold mx-2">Excluir</span>
                     <Button severity="danger" class="my-2" icon="pi pi-trash" @click="deleteCartao(cartaoID)"></Button>
                 </div>
@@ -76,10 +77,10 @@
                         <InputGroupAddon>
                             <i class="pi pi-credit-card"></i>
                         </InputGroupAddon>
-                        <InputText placeholder="9999 9999 9999 9999" class="w-full" v-model="cartao.numero" type="text"
+                        <InputText placeholder="9999 9999 9999 9999" class="w-full" v-model="cartao.numero" type="text" id="numeroCartao"
                             maxlength="16" @input="validarNumero" required />
                         <InputGroupAddon>
-                            <Dropdown :options="bandeiras" optionLabel="label" optionValue="value" required
+                            <Dropdown :options="bandeiras" optionLabel="label" optionValue="value" required id="bandeira"
                                 v-model="cartao.bandeira">
                                 <template #option="{ option }">
                                     <span>{{ option.label }}</span>
@@ -92,39 +93,42 @@
                     <p class="text-center">
                         Código de Segurança
                     </p>
-                    <InputOtp :length="3" class="w-full flex justify-content-center" integerOnly mask required
+                    <InputOtp :length="3" class="w-full flex justify-content-center" integerOnly mask required id="cvv"
                         v-model="cartao.cvv" />
                 </div>
                 <div class="my-2">
                     <div>
                         Nome do Titular
-                        <InputText placeholder="Nome do Titular" class="w-full" required
+                        <InputText placeholder="Nome do Titular" class="w-full" required id="nomeImpresso"
                             v-model="cartao.nomeImpresso" />
                     </div>
                 </div>
                 <div class="my-2">
                     <div>
                         Validade
-                        <Calendar class="w-full" v-model="cartao.validade" dateFormat="mm/yy" view="month" required />
+                        <Calendar class="w-full" v-model="cartao.validade" dateFormat="mm/yy" view="month" required id="validade"
+                        />
                     </div>
                 </div>
                 <div class="my-2">
                     <div>
                         Apelido do Cartão
-                        <InputText placeholder="Apelido do Cartão" class="w-full" v-model="cartao.apelidoCartao"
+                        <InputText placeholder="Apelido do Cartão" class="w-full" v-model="cartao.apelidoCartao" id="apelidoCartao"
                             required />
                     </div>
                 </div>
                 <div class="my-2">
                     <div>
                         Favorito
-                        <InputSwitch class="ml-2" v-model="cartao.favorito" required :readonly="readonly" />
+                        <InputSwitch class="ml-2" v-model="cartao.favorito" required id="favorito" 
+                        />
                     </div>
                 </div>
                 <div class="flex justify-content-between align-items-center my-5">
                     <Button class="my-2" icon="pi pi-x" @click="[visible = false, readonly = true, getCartao()]"
                         severity="danger" label="Cancelar"></Button>
-                    <Button class="my-2" icon="pi pi-check" @click="salvarCartao" label="Salvar"></Button>
+                    <Button class="my-2" icon="pi pi-check" @click="salvarCartao" label="Salvar" id="salvarCartaoBtn"
+                    ></Button>
                 </div>
             </div>
         </template>

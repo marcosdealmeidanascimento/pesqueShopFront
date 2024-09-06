@@ -4,7 +4,7 @@
             <div class="border-1 surface-border border-round surface-ground font-medium p-3 flex flex-auto flex-column">
                 <div class="flex justify-content-end align-items-center">
                     <span class="font-bold mx-2">Editar</span>
-                    <Button class="my-2 mr-5" icon="pi pi-pencil"
+                    <Button class="my-2 mr-5" icon="pi pi-pencil" id="editarEndereco"
                         @click="[visible = true, readonly = false, disabledCep = false]"></Button>
                     <span class="font-bold mx-2">Excluir</span>
                     <Button severity="danger" class="my-2" icon="pi pi-trash"
@@ -81,7 +81,7 @@
             <div class="my-2">
                 <div>
                     CEP
-                    <InputText type="number" placeholder="99999999" class="w-full" v-model="cep" :disabled="disabledCep"
+                    <InputText type="number" placeholder="99999999" class="w-full" v-model="cep" :disabled="disabledCep" id="cep"
                         required />
                 </div>
             </div>
@@ -89,87 +89,99 @@
                 <div>
                     Tipo de Logradouro
                 </div>
-                <Dropdown placeholder="Tipo de Logradouro" class="w-full" optionLabel="label" optionValue="value"
+                <Dropdown placeholder="Tipo de Logradouro" class="w-full" optionLabel="label" optionValue="value" id="tipoLog"
                     :options="tiposLogradouro" filter v-model="endereco.tipoLogradouro" required />
             </div>
             <div class="my-2">
                 <div>
                     Logradouro
-                    <InputText placeholder="Endereço" class="w-full" v-model="endereco.logradouro" required />
+                    <InputText placeholder="Endereço" class="w-full" v-model="endereco.logradouro" required id="logradouro"
+                     />
                 </div>
             </div>
             <div class="my-2">
                 <div>
                     Número
-                    <InputText placeholder="Número" class="w-full" v-model="endereco.numero" required />
+                    <InputText placeholder="Número" class="w-full" v-model="endereco.numero" required id="numero"
+                    />
                 </div>
             </div>
             <div class="my-2">
                 <div>
                     Bairro
-                    <InputText placeholder="Bairro" class="w-full" v-model="endereco.bairro" required />
+                    <InputText placeholder="Bairro" class="w-full" v-model="endereco.bairro" required id="bairro"
+                    />
                 </div>
             </div>
             <div class="my-2">
                 <div>
                     Tipo de Residência
                 </div>
-                <Dropdown placeholder="Tipo de Residência" class="w-full" :options="tiposResidencia" optionLabel="label"
+                <Dropdown placeholder="Tipo de Residência" class="w-full" :options="tiposResidencia" optionLabel="label" id="tipoRes"
                     optionValue="value" filter v-model="endereco.tipoResidencia" required />
             </div>
             <div class="my-2">
                 <div>
                     Complemento
-                    <InputText placeholder="Complemento" class="w-full" v-model="endereco.complemento" />
+                    <InputText placeholder="Complemento" class="w-full" v-model="endereco.complemento" id="complemento"
+                    />
                 </div>
             </div>
             <div class="my-2">
                 <div>
                     Cidade
-                    <InputText placeholder="Cidade" class="w-full" v-model="endereco.cidade" required />
+                    <InputText placeholder="Cidade" class="w-full" v-model="endereco.cidade" required id="cidade"
+                    />
                 </div>
             </div>
             <div class="my-2">
                 <div>
                     Estado
-                    <InputText placeholder="Estado" class="w-full" v-model="endereco.estado" required />
+                    <InputText placeholder="Estado" class="w-full" v-model="endereco.estado" required id="estado"
+                    />
                 </div>
             </div>
             <div class="my-2">
                 <div>
                     País
-                    <InputText placeholder="País" class="w-full" v-model="endereco.pais" required />
+                    <InputText placeholder="País" class="w-full" v-model="endereco.pais" required id="pais"
+                    />
                 </div>
             </div>
             <div class="my-2">
                 <div>
                     Apelido
-                    <InputText placeholder="Apelido" class="w-full" v-model="endereco.apelidoEndereco" required />
+                    <InputText placeholder="Apelido" class="w-full" v-model="endereco.apelidoEndereco" required id="apelidoEndereco"
+                    />
                 </div>
             </div>
             <div class="my-2">
                 <div>
                     Observações
-                    <Textarea placeholder="Observações" class="w-full" v-model="endereco.observacao" auto-resize />
+                    <Textarea placeholder="Observações" class="w-full" v-model="endereco.observacao" auto-resize id="observacao"
+                    />
                 </div>
             </div>
             <div class="my-2">
                 <div>
                     Favorito
-                    <InputSwitch class="ml-2" v-model="endereco.favorito" required />
+                    <InputSwitch class="ml-2" v-model="endereco.favorito" required id="favorito"
+                    />
                 </div>
             </div>
             <div class="my-2">
                 <div>
                     Endereço de Cobrança
-                    <InputSwitch class="ml-2" v-model="endereco.cobranca" required />
+                    <InputSwitch class="ml-2" v-model="endereco.cobranca" required id="cobranca"
+                    />
                 </div>
             </div>
             <div class="flex justify-content-between align-items-center my-5">
                 <Button class="my-2" icon="pi pi-x"
                     @click="[visible = false, readonly = true, disabledCep = true, getEndereco()]" severity="danger"
                     label="Cancelar"></Button>
-                <Button class="my-2" icon="pi pi-check" @click="salvarEndereco" label="Salvar"></Button>
+                <Button class="my-2" icon="pi pi-check" @click="salvarEndereco" label="Salvar" id="salvarEnderecoBtn"
+                ></Button>
             </div>
         </div>
     </Dialog>

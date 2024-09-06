@@ -128,8 +128,8 @@ const deleteClient = (id: Number) => {
         icon: 'pi pi-info-circle',
         rejectLabel: 'Cancelar',
         acceptLabel: 'Excluir',
-        rejectClass: 'p-button-secondary p-button-outlined',
-        acceptClass: 'p-button-danger',
+        rejectClass: 'p-button-secondary p-button-outlined declineDelete',
+        acceptClass: 'p-button-danger acceptDelete',
         accept: () => {
             apiClient.delete(`/clientes/${id}`).finally(() => getClients(limit.value, 0));
             toast.add({ severity: 'success', summary: 'Sucesso', detail: 'Dado excluído com sucesso', life: 3000 });

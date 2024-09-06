@@ -5,20 +5,22 @@
                 <div class="my-2 col-6 p-6">
                     <div>
                         Senha
-                        <Password v-model="senha" :invalid="invalidPass" toggleMask />
+                        <Password v-model="senha" :invalid="invalidPass" toggleMask id="senha"
+                        />
                     </div>
                 </div>
                 <div class="my-2 col-6 p-6">
                     <div>
                         Confirmar Senha
-                        <Password v-model="confirmarSenha" :invalid="invalidPass" toggleMask />
+                        <Password v-model="confirmarSenha" :invalid="invalidPass" toggleMask id="confSenha"
+                        />
                     </div>
                 </div>
             </div>
             <div class="flex pt-4 justify-content-between">
                 <Button label="Cancelar" severity="secondary" icon="pi pi-times"
                     @click="[senha = '', confirmarSenha = '']" />
-                <Button label="Alterar Senha" type="submit" icon="pi pi-check" iconPos="right" :disabled="disabled"
+                <Button label="Alterar Senha" type="submit" icon="pi pi-check" iconPos="right" :disabled="disabled" id="salvarSenhaBtn"
                     @click="salvarCliente" />
             </div>
         </template>
