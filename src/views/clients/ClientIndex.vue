@@ -42,7 +42,7 @@
                     </span>
                 </div>
                 <div class="flex flex-wrap justify-around gap-5 mt-5" id="actionsFilter">
-                    <Button id="filtrarBtn"  label="Filtrar" icon="pi pi-search" @click="getClients(limit, 0)" />
+                    <Button id="filtrarBtn" label="Filtrar" icon="pi pi-search" @click="getClients(limit, 0)" />
                     <Button id="limparBtn" label="Limpar" icon="pi pi-times" @click="limparFiltro()" />
                 </div>
             </template>
